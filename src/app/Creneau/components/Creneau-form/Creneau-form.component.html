@@ -1,0 +1,57 @@
+<app-header></app-header>
+
+<form [formGroup]="creneauForm" (ngSubmit)="onSubmit()">
+  <div class="bottomBorder">
+    <div class="container">
+      <mat-grid-list cols="2" rowHeight="16:1">
+        <mat-grid-tile class="fullheight">
+          <div fxFlex fxLayoutAlign="start center">
+            <button
+              mat-button
+              class="blueButton"
+              type="submit"
+              value="Valider"
+              [disabled]="!creneauForm.valid"
+            >
+              Valider
+            </button>
+            <button mat-button class="blueButton" (click)="reset()">
+              Rénitialiser
+            </button>
+            <button mat-button class="blueButton" routerLink="/clients">
+              Annuler
+            </button>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+  </div>
+
+  <div class="container content">
+    <mat-grid-list cols="2" rowHeight="6:1">
+
+      <mat-grid-tile>
+        <mat-form-field class="formField">
+          <mat-label>Date Debut </mat-label>
+          <input matInput type="datetime-local" formControlName="dateDebut" />
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field class="formField">
+          <mat-label>Date Fin</mat-label>
+          <input matInput type="datetime-local" formControlName="dateFin" />
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field class="formField">
+          <mat-label>Status</mat-label>
+          <input matInput type="boolean" formControlName="status" />
+        </mat-form-field>
+      </mat-grid-tile>
+
+      
+    </mat-grid-list>
+  </div>
+</form>

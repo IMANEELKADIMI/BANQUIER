@@ -1,0 +1,69 @@
+<app-header></app-header>
+<form [formGroup]="accountForm" (ngSubmit)="onSubmit()">
+  <div class="bottomBorder">
+    <div class="container">
+      <mat-grid-list cols="2" rowHeight="16:1">
+        <mat-grid-tile class="fullheight">
+          <div fxFlex fxLayoutAlign="start center">
+            <button
+              mat-button
+              class="blueButton"
+              type="submit"
+              value="Valider"
+              [disabled]="!accountForm.valid"
+            >
+              Valider
+            </button>
+            <button mat-button class="blueButton" (click)="reset()">
+              Rénitialiser
+            </button>
+            <button mat-button class="blueButton" routerLink="/clients">
+              Annuler
+            </button>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+  </div>
+
+  <div class="container content">
+    <mat-grid-list cols="2" >
+      <mat-grid-tile>
+        <mat-form-field class="formField">
+          <mat-label>id </mat-label>
+          <input matInput type="number" formControlName="id" />
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field class="formField">
+          <mat-label>numero </mat-label>
+          <input matInput type="text" formControlName="numero" />
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field class="formField">
+          <mat-label>solde</mat-label>
+          <input matInput type="number" formControlName="solde" />
+        </mat-form-field>
+      </mat-grid-tile>
+      
+<!-- 
+      <mat-grid-tile>
+        <mat-form-field class="formField">
+          <mat-label>Devise</mat-label>
+          <mat-select disableRipple formControlName="devise">
+            <mat-option *ngFor="let currency of currencies" [value]="currency">
+              {{ currency.code }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-grid-tile>
+      -->
+    </mat-grid-list>
+ 
+
+
+  </div>
+</form>
